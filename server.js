@@ -1,5 +1,11 @@
+const express = require('express');
+const http = require('http');
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 3000 });
+const path = require('path');
+
+const app = express();
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 
 let users = new Map();
 
@@ -35,4 +41,9 @@ wss.on('connection', (ws) => {
   });
 });
 
-console.log("WebSocket server running on ws://localhost:3000");
+app.use(express.static(path.join(__dirname)));
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
