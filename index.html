@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Masuk Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Masuk ke Aplikasi Chat</h2>
+    <form action="chat.html" method="GET" onsubmit="return validateForm()">
+      <input type="text" name="username" placeholder="Nama / Username" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <button type="submit">Masuk</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      return true;
+    }
+  </script>
+</body>
+</html>
